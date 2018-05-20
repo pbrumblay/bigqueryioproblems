@@ -83,7 +83,7 @@ the bq show command ... `bq show --format=prettyjson <schema>.<table>`
 
 ### TimePartitioning Test cases
 
-[See code](https://github.com/pbrumblay/bigqueryioproblems/blob/master/src/main/java/com/fearlesstg/TimePartitioningTest.java#L40)
+[See the code for the test case definitions](https://github.com/pbrumblay/bigqueryioproblems/blob/master/src/main/java/com/fearlesstg/TimePartitioningTest.java#L40)
 
 ```bash
 java -cp <path>/bigqueryioproblems/target/bigquery-io-problems-bundled-1.0-SNAPSHOT.jar \
