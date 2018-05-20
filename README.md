@@ -58,13 +58,37 @@ the bq show command ... `bq show --format=prettyjson <schema>.<table>`
 
 1. Run the successful test
 
-        `java -cp <path>/src/bigqueryioproblems/target/bigquery-io-problems-bundled-1.0-SNAPSHOT.jar com.fearlesstg.UsingStandardSQLOrderMatters --runner=DirectRunner --bqTable=<project>:<dataset>.<table> --showItWorking=True --tempLocation=gs://<temp bucket> --project=<project>`
+    ```bash
+    java -cp <path>/bigqueryioproblems/target/bigquery-io-problems-bundled-1.0-SNAPSHOT.jar \
+    com.fearlesstg.UsingStandardSQLOrderMatters \
+    --runner=DirectRunner \
+    --bqTable=<project>:<dataset>.<table> \
+    --showItWorking=True \
+    --tempLocation=gs://<temp bucket> \
+    --project=<project>
+    ```
 
 1. Run the unsuccessful test
 
-        `java -cp <path>/src/bigqueryioproblems/target/bigquery-io-problems-bundled-1.0-SNAPSHOT.jar com.fearlesstg.UsingStandardSQLOrderMatters --runner=DirectRunner --bqTable=<project>:<dataset>.<table> --showItWorking=False --tempLocation=gs://<temp bucket> --project=<project>`
+    ```bash
+    java -cp <path>/bigqueryioproblems/target/bigquery-io-problems-bundled-1.0-SNAPSHOT.jar \
+    com.fearlesstg.UsingStandardSQLOrderMatters \
+    --runner=DirectRunner \
+    --bqTable=<project>:<dataset>.<table> \
+    --showItWorking=False \
+    --tempLocation=gs://<temp bucket> \
+    --project=<project>
+    ```
 
 
 ### TimePartitioning Test cases
 
-    `java -cp <path>/src/bigqueryioproblems/target/bigquery-io-problems-bundled-1.0-SNAPSHOT.jar com.fearlesstg.TimePartitioningTest --runner=DirectRunner --bqTable=<project>:<schema>.<testtable> --testCase=<1-6> --tempLocation=gs://<temp bucket> --project=<project>`
+```bash
+java -cp <path>/bigqueryioproblems/target/bigquery-io-problems-bundled-1.0-SNAPSHOT.jar \
+com.fearlesstg.TimePartitioningTest \
+--runner=DirectRunner \
+--bqTable=<project>:<schema>.<testtable> \
+--testCase=<1-6> \
+--tempLocation=gs://<temp bucket> \
+--project=<project>
+```

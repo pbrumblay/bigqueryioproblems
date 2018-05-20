@@ -99,11 +99,6 @@ public class TimePartitioningTest {
                 //"Incompatible table partitioning specification.
                 //Expects partitioning specification interval(type:day,field:PARTITION_DATE),
                 //but input partitioning specification is interval(type:day,field:PARTITION_DATE)"
-                //
-                //   ^^^^^^
-                //   ??? - What?
-                //
-                //This is unexpected because this is the default for TimePartitioningTest.getType()
 
                 timePartitioning.setField("PARTITION_DATE");
                 tableRowsToWrite.apply("Fails with incorrect and misleading error.",
