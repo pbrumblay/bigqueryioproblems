@@ -90,7 +90,7 @@ java -cp <path>/bigqueryioproblems/target/bigquery-io-problems-bundled-1.0-SNAPS
 com.fearlesstg.TimePartitioningTest \
 --runner=DirectRunner \
 --bqTable=<project>:<schema>.<testtable> \
---testCase=<1-6> \
+--testCase=<1-5> \
 --tempLocation=gs://<temp bucket> \
 --project=<project>
 ```
