@@ -61,7 +61,7 @@ the bq show command ... `bq show --format=prettyjson <schema>.<table>`
     ```bash
     java -cp <path>/bigqueryioproblems/target/bigquery-io-problems-bundled-1.0-SNAPSHOT.jar \
     com.fearlesstg.UsingStandardSQLOrderMatters \
-    --runner=DirectRunner \
+    --runner=DataflowRunner \
     --bqTable=<project>:<dataset>.<table> \
     --showItWorking=True \
     --tempLocation=gs://<temp bucket> \
@@ -73,7 +73,7 @@ the bq show command ... `bq show --format=prettyjson <schema>.<table>`
     ```bash
     java -cp <path>/bigqueryioproblems/target/bigquery-io-problems-bundled-1.0-SNAPSHOT.jar \
     com.fearlesstg.UsingStandardSQLOrderMatters \
-    --runner=DirectRunner \
+    --runner=DataflowRunner \
     --bqTable=<project>:<dataset>.<table> \
     --showItWorking=False \
     --tempLocation=gs://<temp bucket> \
@@ -88,7 +88,7 @@ the bq show command ... `bq show --format=prettyjson <schema>.<table>`
 ```bash
 java -cp <path>/bigqueryioproblems/target/bigquery-io-problems-bundled-1.0-SNAPSHOT.jar \
 com.fearlesstg.TimePartitioningTest \
---runner=DirectRunner \
+--runner=DataflowRunner \
 --bqTable=<project>:<schema>.<testtable> \
 --testCase=<1-5> \
 --tempLocation=gs://<temp bucket> \
@@ -101,7 +101,7 @@ It throws a NullPointer, which it should not do.
 ```bash
 java -cp <path>/bigqueryioproblems/target/bigquery-io-problems-bundled-1.0-SNAPSHOT.jar \
 com.fearlesstg.CannotReadFromPartitionedTable \
---runner=DirectRunner \
+--runner=DataflowRunner \
 --bqTable=<project>:<schema>.<testtable> \
 --partitionValue=<YYYY-MM-DD> \
 --tempLocation=gs://<temp bucket> \
@@ -114,7 +114,7 @@ com.fearlesstg.CannotReadFromPartitionedTable \
     ```bash
     java -cp <path>/bigqueryioproblems/target/bigquery-io-problems-bundled-1.0-SNAPSHOT.jar \
     com.fearlesstg.CannotWriteToPartitionedTable \
-    --runner=DirectRunner \
+    --runner=DataflowRunner \
     --bqTable=<project>:<schema>.<testtable> \
     --partitionValue=<YYYY-MM-DD> \
     --useDynamicDestinations=True
@@ -126,7 +126,7 @@ com.fearlesstg.CannotReadFromPartitionedTable \
     ```bash
     java -cp <path>/bigqueryioproblems/target/bigquery-io-problems-bundled-1.0-SNAPSHOT.jar \
     com.fearlesstg.CannotWriteToPartitionedTable \
-    --runner=DirectRunner \
+    --runner=DataflowRunner \
     --bqTable=<project>:<schema>.<testtable> \
     --partitionValue=<YYYY-MM-DD> \
     --useDynamicDestinations=False
