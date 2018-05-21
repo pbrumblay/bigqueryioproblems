@@ -12,7 +12,7 @@ import org.apache.beam.sdk.values.PCollection;
 import java.util.ArrayList;
 import java.util.List;
 
-
+@SuppressWarnings("Duplicates")
 public class TimePartitioningTest {
     public static void main(String[] args) {
         TimePartitioningTestOptions options = PipelineOptionsFactory.fromArgs(args).withValidation()

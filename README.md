@@ -107,3 +107,29 @@ com.fearlesstg.CannotReadFromPartitionedTable \
 --tempLocation=gs://<temp bucket> \
 --project=<project>
 ```
+
+### Cannot write to partitioned table using DynamicDestination or SerializableFunction<>
+
+1. Using DynamicDestination
+    ```bash
+    java -cp <path>/bigqueryioproblems/target/bigquery-io-problems-bundled-1.0-SNAPSHOT.jar \
+    com.fearlesstg.CannotWriteToPartitionedTable \
+    --runner=DirectRunner \
+    --bqTable=<project>:<schema>.<testtable> \
+    --partitionValue=<YYYY-MM-DD> \
+    --useDynamicDestinations=True
+    --tempLocation=gs://<temp bucket> \
+    --project=<project>
+    ```
+
+1. Using SerializableFunction<ValueInSingleWindow<TableRow>, TableDestination>
+    ```bash
+    java -cp <path>/bigqueryioproblems/target/bigquery-io-problems-bundled-1.0-SNAPSHOT.jar \
+    com.fearlesstg.CannotWriteToPartitionedTable \
+    --runner=DirectRunner \
+    --bqTable=<project>:<schema>.<testtable> \
+    --partitionValue=<YYYY-MM-DD> \
+    --useDynamicDestinations=False
+    --tempLocation=gs://<temp bucket> \
+    --project=<project>
+    ```
