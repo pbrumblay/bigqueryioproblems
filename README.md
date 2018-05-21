@@ -94,3 +94,16 @@ com.fearlesstg.TimePartitioningTest \
 --tempLocation=gs://<temp bucket> \
 --project=<project>
 ```
+
+### Cannot read from partitioned table using a table decorator
+It throws a NullPointer, which it should not do.
+
+```bash
+java -cp <path>/bigqueryioproblems/target/bigquery-io-problems-bundled-1.0-SNAPSHOT.jar \
+com.fearlesstg.CannotReadFromPartitionedTable \
+--runner=DirectRunner \
+--bqTable=<project>:<schema>.<testtable> \
+--partitionValue=<YYYY-MM-DD> \
+--tempLocation=gs://<temp bucket> \
+--project=<project>
+```
