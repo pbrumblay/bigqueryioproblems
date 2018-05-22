@@ -1,5 +1,6 @@
 package com.fearlesstg;
 
+import com.google.api.services.bigquery.model.TableFieldSchema;
 import com.google.api.services.bigquery.model.TableRow;
 import com.google.api.services.bigquery.model.TableSchema;
 import org.apache.beam.sdk.Pipeline;
@@ -18,7 +19,15 @@ public class TimePartitioningTest {
         TimePartitioningTestOptions options = PipelineOptionsFactory.fromArgs(args).withValidation()
             .as(TimePartitioningTestOptions.class);
 
-        TableSchema tableSchema = BigQueryHelper.loadSchema(options.getBqTable());
+        //TableSchema tableSchema = BigQueryHelper.loadSchema(options.getBqTable());
+
+        List<TableFieldSchema> fields = new ArrayList<>();
+        fields.add(new TableFieldSchema().setName("PARTITION_DATE").setType("DATE"));
+        fields.add(new TableFieldSchema().setName("TEXT_FIELD").setType("STRING"));
+        fields.add(new TableFieldSchema().setName("INT_FIELD").setType("INTEGER"));
+        fields.add(new TableFieldSchema().setName("LoadDate").setType("DATE"));
+        fields.add(new TableFieldSchema().setName("RecordSource").setType("STRING"));
+        TableSchema tableSchema = new TableSchema().setFields(fields);
 
         Pipeline p = Pipeline.create(options);
 
