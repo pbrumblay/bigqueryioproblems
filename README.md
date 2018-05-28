@@ -110,26 +110,6 @@ com.fearlesstg.CannotReadFromPartitionedTable \
 
 ### Cannot write to partitioned table using DynamicDestination or SerializableFunction<>
 
-1. Using DynamicDestination
-    ```bash
-    java -cp <path>/bigqueryioproblems/target/bigquery-io-problems-bundled-1.0-SNAPSHOT.jar \
-    com.fearlesstg.CannotWriteToPartitionedTable \
-    --runner=DataflowRunner \
-    --bqTable=<project>:<schema>.<testtable> \
-    --partitionValue=<YYYY-MM-DD> \
-    --useDynamicDestinations=True
-    --tempLocation=gs://<temp bucket> \
-    --project=<project>
-    ```
+The error was related to a misleading error message from the BigQuery REST API with an improperly formatted table decorator. Google has opened a bug for this in their public tracker: https://issuetracker.google.com/issues/80315821
 
-1. Using SerializableFunction<ValueInSingleWindow<TableRow>, TableDestination>
-    ```bash
-    java -cp <path>/bigqueryioproblems/target/bigquery-io-problems-bundled-1.0-SNAPSHOT.jar \
-    com.fearlesstg.CannotWriteToPartitionedTable \
-    --runner=DataflowRunner \
-    --bqTable=<project>:<schema>.<testtable> \
-    --partitionValue=<YYYY-MM-DD> \
-    --useDynamicDestinations=False
-    --tempLocation=gs://<temp bucket> \
-    --project=<project>
-    ```
+This is a working example of how to write (and replace) a big query partition with a properly formatted decorator: https://gist.github.com/pbrumblay/b49bf08e0b652319120dfb1c861f0936
